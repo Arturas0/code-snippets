@@ -1,0 +1,32 @@
+//Loop array in array
+
+<?php
+//array containing elements
+$arr = array([
+    'A' => 'Alfa',
+    'B' => 'Beta',
+    'C' => 'Gama'
+],
+    [
+        'A'  => 'Alfa',
+        'D'  => 'Gamta',
+        'E' => 'Beta'
+    ]
+);
+
+$allowedKeys = ['A', 'B', 'C'];
+
+foreach ($arr as $val)
+{
+    if (is_array($val))
+    {
+        foreach ($val as $subval => $_)
+        {
+            if(!in_array($subval, $allowedKeys))
+            {
+                return false;
+            }
+            return true;
+        }
+    }
+}
